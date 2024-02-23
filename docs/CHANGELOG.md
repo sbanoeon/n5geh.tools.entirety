@@ -2,6 +2,25 @@
 
 
 
+## v4.0.0 (2024-02-23)
+
+### Breaking
+
+* fix(entities)!: check semantics release ([`f144c57`](https://github.com/sbanoeon/n5geh.tools.entirety/commit/f144c577704569e768bd4ef54f9494b734d75c01))
+
+* fix(entities)!: check semantics release ([`34b4357`](https://github.com/sbanoeon/n5geh.tools.entirety/commit/34b4357838408bc513f6eb60892f86560695b93b))
+
+* feat(entities)!: check semantics release ([`6562932`](https://github.com/sbanoeon/n5geh.tools.entirety/commit/656293295d0c7b54913e567009488047fc36b86a))
+
+### Fix
+
+* fix(entities): check semantics release ([`5bf6864`](https://github.com/sbanoeon/n5geh.tools.entirety/commit/5bf686446f368542eafb0ed035f62e861e61378b))
+
+### Unknown
+
+* Merge remote-tracking branch &#39;origin/main&#39; ([`762b378`](https://github.com/sbanoeon/n5geh.tools.entirety/commit/762b378b31d8b88786f0023dbe1b2afd6b566acb))
+
+
 ## v3.0.0 (2024-02-23)
 
 ### Breaking
