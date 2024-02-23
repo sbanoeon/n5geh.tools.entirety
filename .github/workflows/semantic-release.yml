@@ -28,7 +28,7 @@ jobs:
               [
                 "@semantic-release/release-notes-generator",
                 {
-                  "preset": "angular",
+                  "preset": "conventionalcommits",
                   "writerOpts": {
                     "groupBy": "scope",
                   }
