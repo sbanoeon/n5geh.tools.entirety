@@ -30,8 +30,7 @@ jobs:
                 {
                   "preset": "angular",
                   "writerOpts": {
-                    "noteGroupsSort": "scope",
-                    "notesSort": "scope"
+                    "commitsSort": ["subject", "scope"]
                   }
                 }
               ],
