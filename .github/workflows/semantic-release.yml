@@ -30,7 +30,7 @@ jobs:
                 {
                   "preset": "conventionalcommits",
                   "writerOpts": {
-                    "commitsSort": [ "subject", "scope" ]
+                    "commitsSort": [ "scope", "subject" ]
                   }
                 }
               ],
