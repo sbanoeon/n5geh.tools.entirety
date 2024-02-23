@@ -32,7 +32,8 @@ jobs:
                   "writerOpts": {
                     "commitsSort": "header"
                     "groupBy": "scope"
-                  }
+                  },
+                  "linkCompare": false
                 }
               ],
               '@semantic-release/npm',
