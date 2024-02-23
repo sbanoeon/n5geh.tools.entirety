@@ -21,7 +21,7 @@ jobs:
         #run: codfish/semantic-release-action@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN  }}
-          additional-packages: ["conventional-changelog-conventionalcommits@7"]
+          additional-packages: [conventional-changelog-conventionalcommits@7]
           plugins: |
             [
               '@semantic-release/commit-analyzer',
