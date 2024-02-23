@@ -7,51 +7,32 @@ on:
       - main
 
 jobs:
-  release:
-    runs-on: ubuntu-latest
-    concurrency: release
-
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - run: codfish/semantic-release-action@v3
-        with:
-          additional-packages: [ 'conventional-changelog-conventionalcommits@7' ]
-          plugins: |
-            [
-              '@semantic-release/commit-analyzer',
-              [
-                "@semantic-release/release-notes-generator",
-                {
-                  "preset": "conventionalcommits",
-                  "presetConfig": {
-                    "types": [
-                      { type: 'feat', section: 'Features', hidden: false },
-                      { type: 'fix', section: 'Bug Fixes', hidden: false },
-                      { type: 'perf', section: 'Performance Improvements', hidden: false },
-                      { type: 'revert', section: 'Reverts', hidden: false },
-                      { type: 'docs', section: 'Other Updates', hidden: false },
-                      { type: 'style', section: 'Other Updates', hidden: false },
-                      { type: 'chore', section: 'Other Updates', hidden: false },
-                      { type: 'refactor', section: 'Other Updates', hidden: false },
-                      { type: 'test', section: 'Other Updates', hidden: false },
-                      { type: 'build', section: 'Other Updates', hidden: false },
-                      { type: 'ci', section: 'Other Updates', hidden: false }
-                    ]
-                  }
-                }
-              ],
-              '@semantic-release/npm',
-              '@semantic-release/github'
-            ]
-#      - name: Python Semantic Release
-#        #uses: relekang/python-semantic-release@v8.0.8
-#        run: codfish/semantic-release-action@v3
+  steps:
+    - run: codfish/semantic-release-action@v3
+      with:
+        dry-run: true
+        repository-url: https://github.com/codfish/semantic-release-action.git
+        tag-format: 'v${version}'
+        extends: '@semantic-release/apm-config'
+        additional-packages: |
+          ['@semantic-release/apm@4.0.0', '@semantic-release/git']
+        plugins: |
+          ['@semantic-release/commit-analyzer', '@semantic-release/release-notes-generator', '@semantic-release/github', '@semantic-release/apm', '@semantic-release/git']
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+#  release:
+#    runs-on: ubuntu-latest
+#    concurrency: release
+#
+#    steps:
+#      - uses: actions/checkout@v3
 #        with:
-#          github_token: ${{ secrets.GITHUB_TOKEN  }}
-#          additional-packages: ['conventional-changelog-conventionalcommits@7']
+#          fetch-depth: 0
+#
+#      - run: codfish/semantic-release-action@v3
+#        with:
+#          additional-packages: [ 'conventional-changelog-conventionalcommits@7' ]
 #          plugins: |
 #            [
 #              '@semantic-release/commit-analyzer',
@@ -73,19 +54,52 @@ jobs:
 #                      { type: 'build', section: 'Other Updates', hidden: false },
 #                      { type: 'ci', section: 'Other Updates', hidden: false }
 #                    ]
-#                  },
-#                  "writerOpts": {
-#                    "commitsSort": [ "subject", "scope" ]
 #                  }
 #                }
 #              ],
 #              '@semantic-release/npm',
 #              '@semantic-release/github'
 #            ]
-
-
-      - name: Publish package distributions to GitHub Releases
-        uses: python-semantic-release/upload-to-gh-release@main
-        if: steps.release.outputs.released == 'true'
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN  }}
+##      - name: Python Semantic Release
+##        #uses: relekang/python-semantic-release@v8.0.8
+##        run: codfish/semantic-release-action@v3
+##        with:
+##          github_token: ${{ secrets.GITHUB_TOKEN  }}
+##          additional-packages: ['conventional-changelog-conventionalcommits@7']
+##          plugins: |
+##            [
+##              '@semantic-release/commit-analyzer',
+##              [
+##                "@semantic-release/release-notes-generator",
+##                {
+##                  "preset": "conventionalcommits",
+##                  "presetConfig": {
+##                    "types": [
+##                      { type: 'feat', section: 'Features', hidden: false },
+##                      { type: 'fix', section: 'Bug Fixes', hidden: false },
+##                      { type: 'perf', section: 'Performance Improvements', hidden: false },
+##                      { type: 'revert', section: 'Reverts', hidden: false },
+##                      { type: 'docs', section: 'Other Updates', hidden: false },
+##                      { type: 'style', section: 'Other Updates', hidden: false },
+##                      { type: 'chore', section: 'Other Updates', hidden: false },
+##                      { type: 'refactor', section: 'Other Updates', hidden: false },
+##                      { type: 'test', section: 'Other Updates', hidden: false },
+##                      { type: 'build', section: 'Other Updates', hidden: false },
+##                      { type: 'ci', section: 'Other Updates', hidden: false }
+##                    ]
+##                  },
+##                  "writerOpts": {
+##                    "commitsSort": [ "subject", "scope" ]
+##                  }
+##                }
+##              ],
+##              '@semantic-release/npm',
+##              '@semantic-release/github'
+##            ]
+#
+#
+#      - name: Publish package distributions to GitHub Releases
+#        uses: python-semantic-release/upload-to-gh-release@main
+#        if: steps.release.outputs.released == 'true'
+#        with:
+#          github_token: ${{ secrets.GITHUB_TOKEN  }}
