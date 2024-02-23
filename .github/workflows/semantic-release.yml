@@ -20,6 +20,7 @@ jobs:
         uses: relekang/python-semantic-release@v8.0.8
         with:
           github_token: ${{ secrets.GITHUB_TOKEN  }}
+          additional-packages: ['conventional-changelog-conventionalcommits@7']
           plugins: |
             [
               '@semantic-release/commit-analyzer',
