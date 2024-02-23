@@ -30,7 +30,7 @@ jobs:
                 {
                   "preset": "angular",
                   "writerOpts": {
-                    "commitsSort": [ "scope", "subject" ]
+                    "commitsSort": [ "subject", "scope" ]
                   }
                 }
               ],
