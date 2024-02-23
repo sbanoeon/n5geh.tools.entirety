@@ -30,7 +30,8 @@ jobs:
                 {
                   "preset": "conventionalcommits",
                   "writerOpts": {
-                    "groupBy": "scope"
+                    "groupBy": "scope",
+                    "noteGroupsSort": "scope"
                   }
                 }
               ],
