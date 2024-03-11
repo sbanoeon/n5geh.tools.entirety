@@ -24,12 +24,11 @@ module.exports = {
                 //         { type: "chore", section: "Miscellaneous Chores", hidden: false },
                 //       ],
                 //     },
-                "writerOpts": {
-                    "groupBy": "scope",
-
-                    // "commitsSort": ["subject", "scope"]
-                }
+                // "writerOpts": {
+                //     "groupBy": "scope",
+                //     "linkReferences": "False",
+                // "commitsSort": ["subject", "sco
             }
         ]
     ]
-};
+}
