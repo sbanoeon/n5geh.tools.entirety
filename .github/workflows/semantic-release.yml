@@ -22,29 +22,54 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN  }}
           #additional-packages: [conventional-changelog-conventionalcommits@7]
-          plugins: |
-            [
-              '@semantic-release/commit-analyzer',
+          options: {
+            "plugins": [
+              [
+                "@semantic-release/commit-analyzer",
+                {
+                  "preset": "angular",
+                  "parserOpts": {
+                    "noteKeywords": [ "BREAKING CHANGE", "BREAKING CHANGES", "BREAKING" ]
+                  }
+                }
+              ],
               [
                 "@semantic-release/release-notes-generator",
                 {
                   "preset": "angular",
-                  "presetConfig": {
-                      types: [
-                        { type: "feat", section: "Featuressss", hidden: false },
-                        { type: "fix", section: "Bug Fixes", hidden: false },
-                        { type: "docs", section: "Miscellaneous Chores", hidden: false },
-                        { type: "chore", section: "Miscellaneous Chores", hidden: false },
-                      ],
-                    },
+                  "parserOpts": {
+                    "noteKeywords": [ "BREAKING CHANGE", "BREAKING CHANGES", "BREAKING" ]
+                  },
                   "writerOpts": {
-                    "groupBy": "scope",
+                    "commitsSort": [ "subject", "scope" ]
                   }
                 }
-              ],
-              '@semantic-release/npm',
-              '@semantic-release/github'
+              ]
             ]
+          }
+#          plugins: |
+#            [
+#              '@semantic-release/commit-analyzer',
+#              [
+#                "@semantic-release/release-notes-generator",
+#                {
+#                  "preset": "angular",
+#                  "presetConfig": {
+#                      types: [
+#                        { type: "feat", section: "Featuressss", hidden: false },
+#                        { type: "fix", section: "Bug Fixes", hidden: false },
+#                        { type: "docs", section: "Miscellaneous Chores", hidden: false },
+#                        { type: "chore", section: "Miscellaneous Chores", hidden: false },
+#                      ],
+#                    },
+#                  "writerOpts": {
+#                    "groupBy": "scope",
+#                  }
+#                }
+#              ],
+#              '@semantic-release/npm',
+#              '@semantic-release/github'
+#            ]
 
 
       - name: Publish package distributions to GitHub Releases
