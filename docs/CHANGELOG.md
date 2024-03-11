@@ -2,6 +2,17 @@
 
 
 
+## v4.17.0 (2024-02-23)
+
+### Feature
+
+* feat(entities): check semantics release ([`7cfdac7`](https://github.com/sbanoeon/n5geh.tools.entirety/commit/7cfdac7f18081947740d3db002f496add7ebc761))
+
+### Unknown
+
+* Merge remote-tracking branch &#39;origin/main&#39; ([`715abdd`](https://github.com/sbanoeon/n5geh.tools.entirety/commit/715abddcca090b7f00b4381fd20abaf9ba73fd75))
+
+
 ## v4.16.0 (2024-02-23)
 
 ### Feature
