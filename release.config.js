@@ -1,5 +1,7 @@
 module.exports =
     {
+        "dryRun": true,
+        "debug": true,
         "plugins": [
             [
                 "@semantic-release/commit-analyzer",
