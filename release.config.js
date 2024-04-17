@@ -28,6 +28,7 @@ module.exports =
                         ],
                     },
                     "writerOpts": {
+                        "groupBy": "scope",
                         "commitsSort": ["subject", "scope"]
                     }
                 }
