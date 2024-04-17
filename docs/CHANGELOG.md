@@ -2,6 +2,18 @@
 
 
 
+## v5.4.0 (2024-04-17)
+
+### Feature
+
+* feat(semantics): check semantics release
+BREAKING CHANGE: test ([`25a4cdc`](https://github.com/sbanoeon/n5geh.tools.entirety/commit/25a4cdc3e9b78d29a1d2d118fc6118b3dbd5a93c))
+
+### Unknown
+
+* Merge remote-tracking branch &#39;origin/main&#39; ([`66612ab`](https://github.com/sbanoeon/n5geh.tools.entirety/commit/66612ab1cb65f6acd434d5b0ff1db1bc7ce183d2))
+
+
 ## v5.3.0 (2024-04-17)
 
 ### Feature
