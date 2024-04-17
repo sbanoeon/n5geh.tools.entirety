@@ -18,13 +18,11 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '14'
-
-      - name: Python Semantic Release
-        #uses: python-semantic-release/python-semantic-release@master
+          node-version: 14
+      - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v3
         with:
-          semantic_version: 19
+          semantic_version: 18
           branch: main
           extra_plugins: |
             @conventional-changelog-eslint
