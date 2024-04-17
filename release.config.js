@@ -1,6 +1,6 @@
 module.exports =
     {
-        "dryRun": true,
+        //"dryRun": true,
         "debug": true,
         "plugins": [
             [
