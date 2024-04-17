@@ -1,9 +1,9 @@
+### This is the old configuration with pyproject.toml file
 name: Semantic Release
 
 on:
   push:
     branches:
-      - development
       - main
 
 jobs:
@@ -12,95 +12,68 @@ jobs:
     concurrency: release
 
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 14
-      - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@v3
-        with:
-          semantic_version: 18
-          branches: |
-            [ 'main',
-              {
-                name: 'alpha',
-                prerelease: true
-              }
-            ]
-          extra_plugins: |
-            "@semantic-release/commit-analyzer"
-            "@semantic-release/release-notes-generator"
-            "@semantic-release/changelog"
-            "conventional-changelog-conventionalcommits@6"
-          #github_token: ${{ secrets.GITHUB_TOKEN }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Python Semantic Release
+      uses: relekang/python-semantic-release@v8.0.8
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN  }}
 
-#      - name: Python Semantic Release
-#        uses: cycjimmy/semantic-release-action@v4 #relekang/python-semantic-release@v8.0.8
-#        #run: codfish/semantic-release-action@v3
+    - name: Publish package distributions to GitHub Releases
+      uses: python-semantic-release/upload-to-gh-release@main
+      if: steps.release.outputs.released == 'true'
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN  }}
+
+
+
+### This works with the new onfig.js file
+
+#name: Semantic Release
+#
+#on:
+#  push:
+#    branches:
+#      - development
+#      - main
+#
+#jobs:
+#  release:
+#    runs-on: ubuntu-latest
+#    concurrency: release
+#
+#    steps:
+#      - uses: actions/checkout@v3
+#        with:
+#          fetch-depth: 0
+#
+#      - uses: actions/setup-node@v3
+#        with:
+#          node-version: 14
+#      - name: Semantic Release
+#        uses: cycjimmy/semantic-release-action@v3
+#        with:
+#          semantic_version: 18
+#          branches: |
+#            [ 'main',
+#              {
+#                name: 'alpha',
+#                prerelease: true
+#              }
+#            ]
+#          extra_plugins: |
+#            "@semantic-release/commit-analyzer"
+#            "@semantic-release/release-notes-generator"
+#            "@semantic-release/changelog"
+#            "conventional-changelog-conventionalcommits@6"
+#          #github_token: ${{ secrets.GITHUB_TOKEN }}
 #        env:
 #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#
+#      - name: Publish package distributions to GitHub Releases
+#        uses: python-semantic-release/upload-to-gh-release@main
+#        if: steps.release.outputs.released == 'true'
 #        with:
-#          branch: main
-##        with:
-##          github_token: ${{ secrets.GITHUB_TOKEN  }}
-#          #additional-packages: [conventional-changelog-conventionalcommits@7]
-##          options: {
-##            "plugins": [
-##              [
-##                "@semantic-release/commit-analyzer",
-##                {
-##                  "preset": "angular",
-##                  "parserOpts": {
-##                    "noteKeywords": [ "BREAKING CHANGE", "BREAKING CHANGES", "BREAKING" ]
-##                  }
-##                }
-##              ],
-##              [
-##                "@semantic-release/release-notes-generator",
-##                {
-##                  "preset": "angular",
-##                  "parserOpts": {
-##                    "noteKeywords": [ "BREAKING CHANGE", "BREAKING CHANGES", "BREAKING" ]
-##                  },
-##                  "writerOpts": {
-##                    "commitsSort": [ "subject", "scope" ]
-##                  }
-##                }
-##              ]
-##            ]
-##          }
-##          plugins: |
-##            [
-##              '@semantic-release/commit-analyzer',
-##              [
-##                "@semantic-release/release-notes-generator",
-##                {
-##                  "preset": "angular",
-##                  "presetConfig": {
-##                      types: [
-##                        { type: "feat", section: "Featuressss", hidden: false },
-##                        { type: "fix", section: "Bug Fixes", hidden: false },
-##                        { type: "docs", section: "Miscellaneous Chores", hidden: false },
-##                        { type: "chore", section: "Miscellaneous Chores", hidden: false },
-##                      ],
-##                    },
-##                  "writerOpts": {
-##                    "groupBy": "scope",
-##                  }
-##                }
-##              ],
-##              '@semantic-release/npm',
-##              '@semantic-release/github'
-##            ]
-
-
-      - name: Publish package distributions to GitHub Releases
-        uses: python-semantic-release/upload-to-gh-release@main
-        if: steps.release.outputs.released == 'true'
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN  }}
+#          github_token: ${{ secrets.GITHUB_TOKEN  }}
