@@ -23,7 +23,7 @@ module.exports =
                         types: [
                             {type: "feat", section: "Featuressss", hidden: false},
                             {type: "fix", section: "Bug Fixes", hidden: false},
-                            {type: "docs", section: "Miscellaneous Chores", hidden: false},
+                            {type: "docs", section: "Documentationsss", hidden: false},
                             {type: "chore", section: "Miscellaneous Chores", hidden: false},
                         ],
                     },
