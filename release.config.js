@@ -31,7 +31,15 @@ module.exports =
                         "commitsSort": ["subject", "scope"]
                     }
                 }
-            ]
+            ],
+            [
+                "@semantic-release/github",
+                {
+                    "assets": [],
+                    "addReleases": true
+                }
+            ],
+            "@semantic-release/git"
         ]
     }
 // {
