@@ -16,6 +16,10 @@ jobs:
         with:
           fetch-depth: 0
 
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
       - name: Python Semantic Release
         #uses: python-semantic-release/python-semantic-release@master
         uses: cycjimmy/semantic-release-action@3.4.1
