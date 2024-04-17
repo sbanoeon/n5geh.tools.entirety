@@ -18,8 +18,9 @@ jobs:
 
       - name: Python Semantic Release
         #uses: python-semantic-release/python-semantic-release@master
-        uses: cycjimmy/semantic-release-action@v4
+        uses: cycjimmy/semantic-release-action@3.4.1
         with:
+          semantic_version: 18
           branch: main
           extra_plugins: |
             @conventional-changelog-eslint@4.0.0
