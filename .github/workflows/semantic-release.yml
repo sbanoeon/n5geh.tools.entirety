@@ -20,6 +20,7 @@ jobs:
         #uses: python-semantic-release/python-semantic-release@master
         uses: cycjimmy/semantic-release-action@v4
         with:
+          branch: main
           extra_plugins: |
             @semantic-release/changelog@6.0.0
           #github_token: ${{ secrets.GITHUB_TOKEN }}
