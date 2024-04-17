@@ -1,7 +1,7 @@
 ## What's Changed
 # {{ version.as_tag() }} ({{ release.tagged_date.strftime("%Y-%m-%d") }})
 {{ release["elements"] }}
-{% for type_, commits, scope_ in release["elements"] | dictsort %}
+{% for type_, commits in release["elements"] | dictsort %}
 ## {{ type_ | capitalize }}
 {% for commit in commits %}
 {% if type_ != "unknown" %}
