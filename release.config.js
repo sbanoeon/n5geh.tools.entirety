@@ -3,7 +3,7 @@ module.exports = {
         [
             "@semantic-release/commit-analyzer",
             {
-                "preset": "conventionalcommits",
+                "preset": "angular",
                 "parserOpts": {
                     "noteKeywords": ["BREAKING CHANGE", "BREAKING CHANGES", "BREAKING"]
                 }
