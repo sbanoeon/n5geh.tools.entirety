@@ -5,7 +5,7 @@
 ## {{ type_ | capitalize }}
 {% for commit in commits %}
 {% if type_ != "unknown" %}
-* {{ scope_ }}
+* {{ commit}}
 * {{ commit.message.rstrip() }} ([`{{ commit.short_hash }}`]({{ commit.hexsha | commit_hash_url }}))
 {% else %}
 * {{ commit.message.rstrip() }} {{ commit }} ([`{{ commit.short_hash }}`]({{ commit.hexsha | commit_hash_url }}))
