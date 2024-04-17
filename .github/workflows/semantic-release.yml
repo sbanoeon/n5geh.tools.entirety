@@ -25,12 +25,10 @@ jobs:
           semantic_version: 18
           branch: main
           extra_plugins: |
-            @conventional-changelog-eslint
-            @semantic-release/changelog
+            "@semantic-release/changelog"
           #github_token: ${{ secrets.GITHUB_TOKEN }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
 
 #      - name: Python Semantic Release
