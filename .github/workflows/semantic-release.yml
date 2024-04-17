@@ -22,7 +22,7 @@ jobs:
 
       - name: Python Semantic Release
         #uses: python-semantic-release/python-semantic-release@master
-        uses: cycjimmy/semantic-release-action@3.4.1
+        uses: cycjimmy/semantic-release-action@latest
         with:
           semantic_version: 18
           branch: main
