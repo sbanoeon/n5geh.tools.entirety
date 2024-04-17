@@ -26,7 +26,6 @@ jobs:
           branch: main
           extra_plugins: |
             "@conventional-changelog-eslint"
-            "@semantic-release/changelog"
           #github_token: ${{ secrets.GITHUB_TOKEN }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
