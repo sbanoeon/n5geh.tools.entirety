@@ -24,7 +24,7 @@ jobs:
         with:
           semantic_version: 18
           branches: |
-            [
+            [ 'main',
               {
                 name: 'main',
                 prerelease: true
