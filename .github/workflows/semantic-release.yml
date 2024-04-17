@@ -23,7 +23,13 @@ jobs:
         uses: cycjimmy/semantic-release-action@v3
         with:
           semantic_version: 18
-          branch: main
+          branches: |
+            [
+              {
+                name: 'main',
+                prerelease: true
+              }
+            ]
           extra_plugins: |
             "@semantic-release/changelog"
             "conventional-changelog-conventionalcommits@6"
