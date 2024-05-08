@@ -28,7 +28,6 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN  }}
 
 
-
 ### This works with the new onfig.js file
 
 #name: Semantic Release
